@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://duyaa15dmk0s8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00p6n"]
+size = Vector2(11, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8ne1"]
+size = Vector2(11, 130)
+
+[node name="GameCam" type="Camera2D" unique_id=482528657]
+zoom = Vector2(5, 5)
+
+[node name="LeftEdge" type="StaticBody2D" parent="." unique_id=1511710013]
+position = Vector2(-116, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftEdge" unique_id=34889091]
+position = Vector2(-4.5, 0)
+shape = SubResource("RectangleShape2D_00p6n")
+
+[node name="RightEdge" type="StaticBody2D" parent="." unique_id=868385075]
+position = Vector2(116, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightEdge" unique_id=1417142916]
+position = Vector2(4.5, 0)
+shape = SubResource("RectangleShape2D_w8ne1")

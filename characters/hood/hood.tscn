@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://w1gawd44s7p8"]
+
+[ext_resource type="Script" uid="uid://dafrw4n7xosyt" path="res://characters/hood/Hood.cs" id="1_2clg8"]
+[ext_resource type="Texture2D" uid="uid://b8vqu1kkywwmn" path="res://characters/hood/resources/hood.png" id="2_8t5le"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00p6n"]
+size = Vector2(10, 14)
+
+[sub_resource type="Animation" id="Animation_alf8l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xih7k"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_2clg8"]
+resource_name = "walk_loop"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_8t5le"]
+resource_name = "walk_start"
+length = 0.46599999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033, 0.066, 0.266),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o5iho"]
+_data = {
+&"RESET": SubResource("Animation_alf8l"),
+&"idle": SubResource("Animation_xih7k"),
+&"walk_loop": SubResource("Animation_2clg8"),
+&"walk_start": SubResource("Animation_8t5le")
+}
+
+[node name="Hood" type="CharacterBody2D" unique_id=1539965784]
+script = ExtResource("1_2clg8")
+Speed = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=519513618]
+texture_filter = 1
+texture = ExtResource("2_8t5le")
+hframes = 3
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://characters/hood/resources/idle.aseprite",
+"source_uid": 2378830073504544310
+}
+metadata/_aseprite_wizard_source_file_hash_ = "9b1c761ba398597c4daf9832548546ec"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1547320876]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_00p6n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=427992653]
+libraries/ = SubResource("AnimationLibrary_o5iho")

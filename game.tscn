@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dk3qd6g11vn0k"]
+
+[ext_resource type="PackedScene" uid="uid://w1gawd44s7p8" path="res://characters/hood/hood.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://duyaa15dmk0s8" path="res://game_cam.tscn" id="2_e2o6t"]
+
+[node name="Game" type="Node2D" unique_id=76987111]
+
+[node name="Hood" parent="." unique_id=1790592657 instance=ExtResource("1_80nbo")]
+
+[node name="GameCam" parent="." unique_id=482528657 instance=ExtResource("2_e2o6t")]
